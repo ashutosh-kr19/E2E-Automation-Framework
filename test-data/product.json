@@ -1,0 +1,26 @@
+{
+  "testCases": [
+    {
+      "name": "Single Product Test",
+      "products": [
+        {
+          "name": "Blue Top",
+          "price": 500
+        }
+      ]
+    },
+    {
+      "name": "Multiple Products Test",
+      "products": [
+        {
+          "name": "Blue Top",
+          "price": 500
+        },
+        {
+          "name": "Men Tshirt",
+          "price": 400
+        }
+      ]
+    }
+  ]
+}

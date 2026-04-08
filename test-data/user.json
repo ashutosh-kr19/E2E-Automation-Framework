@@ -1,0 +1,20 @@
+{
+  "validUser": {
+    "name": "Ashutosh Singh",
+    "email": "ashutoshkr1019@gmail.com",
+    "password": "12345678",
+    "nameOnCard": "Ashutosh Singh",
+    "cardNumber": "1234567890123456",
+    "cvc": "123",
+    "expiryMonth": "12",
+    "expiryYear": "2028"
+  },
+  "invalidUser": {
+    "email": "invaliduser@test.com",
+    "password": "wrongpass"
+  },
+  "wrongPasswordUser": {
+    "email": "ashutoshkr1019@gmail.com",
+    "password": "wrongpass"
+  }
+}
