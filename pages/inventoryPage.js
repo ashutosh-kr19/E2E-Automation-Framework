@@ -1,9 +1,6 @@
-const { expect } = require('@playwright/test');
-
 class InventoryPage {
   constructor(page) {
     this.page = page;
-    this.productCards = page.locator('.product-image-wrapper');
   }
 
   async goToProducts() {
@@ -11,18 +8,23 @@ class InventoryPage {
   }
 
   async addProduct(productName) {
-  const productCard = this.page
-    .locator('.product-image-wrapper')
-    .filter({ hasText: productName })
-    .first();
+    const productCard = this.page
+      .locator('.product-image-wrapper')
+      .filter({ hasText: productName })
+      .first();
+
     await productCard.waitFor({ state: 'visible' });
-    await productCard.locator('.add-to-cart').first().click({ force: true });
+    await productCard.locator('.add-to-cart').first().click();
+    await this.page.getByText('Continue Shopping').click();
   }
 
-  async addMultipleProducts(productList) {
-    for (const product of productList) {
+  async addSingleProduct(productName) {
+    await this.addProduct(productName);
+  }
+
+  async addMultipleProducts(products) {
+    for (const product of products) {
       await this.addProduct(product.name);
-      await this.goToProducts();
     }
   }
 

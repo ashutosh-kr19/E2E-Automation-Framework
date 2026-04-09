@@ -16,16 +16,28 @@ test.describe('Cart Tests', () => {
     );
     await loginPage.verifyLoginSuccess();
   });
-
-  for (const testCase of data.testCases) {
-    test(`${testCase.name}`, async ({ page }) => {
+  
+  for (const productList of data.productLists) {
+    test(`Add products: ${productList.name}`, async ({ page }) => {
       const inventoryPage = new InventoryPage(page);
       const cartPage = new CartPage(page);
       await inventoryPage.goToProducts();
-      await inventoryPage.addMultipleProducts(testCase.products);
+      await inventoryPage.addMultipleProducts(productList.products);
       await inventoryPage.viewCart();
-      await cartPage.validateAllProducts(testCase.products);
+      await cartPage.validateAllProducts(productList.products);
     });
   }
+
+  test('Remove product from cart', async ({ page }) => {
+    const inventoryPage = new InventoryPage(page);
+    const cartPage = new CartPage(page);
+    const product = data.productLists[0].products[0];
+    await inventoryPage.goToProducts();
+    await inventoryPage.addSingleProduct(product.name);
+    await inventoryPage.viewCart();
+    await cartPage.verifyCartPage();
+    await cartPage.removeProduct(product.name);
+    await cartPage.verifyProductRemoved(product.name);
+  });
 
 });

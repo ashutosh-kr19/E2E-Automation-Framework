@@ -1,5 +1,5 @@
 {
-  "testCases": [
+  "productLists": [
     {
       "name": "Single Product Test",
       "products": [
