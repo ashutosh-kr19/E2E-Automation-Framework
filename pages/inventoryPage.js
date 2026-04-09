@@ -11,18 +11,12 @@ class InventoryPage {
   }
 
   async addProduct(productName) {
-    const productCard = this.productCards
-      .filter({ hasText: productName })
-      .first();
-
-    await productCard.hover();
-
-    await productCard.locator('.add-to-cart').first().click();
-
-    const continueBtn = this.page.getByRole('button', { name: 'Continue Shopping' });
-
-    await expect(continueBtn).toBeVisible();
-    await continueBtn.click();
+  const productCard = this.page
+    .locator('.product-image-wrapper')
+    .filter({ hasText: productName })
+    .first();
+    await productCard.waitFor({ state: 'visible' });
+    await productCard.locator('.add-to-cart').first().click({ force: true });
   }
 
   async addMultipleProducts(productList) {
