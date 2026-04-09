@@ -1,50 +1,59 @@
-🚀 Playwright Automation Framework
+Playwright Automation Framework:
 
-This project is a scalable end-to-end test automation framework built using Playwright. It follows industry best practices such as the Page Object Model (POM), data-driven testing, and modular architecture to ensure maintainability, reusability, and reliability.
+This project is an End-to-End (E2E) Automation Framework built using Playwright with JavaScript.
+It covers real-world test scenarios like login, add to cart, and complete checkout flow.
 
-📌 Overview
+=>Project Objective
 
-The framework automates real-world user workflows including:
-    User authentication (valid & invalid scenarios)
-    Product selection and cart validation
-    Complete checkout flow with payment simulation
-    End-to-end validation of order placement
+  The goal of this project is to:
+    -Build a Playwright framework from scratch
+    -Follow proper folder structure
+    -Use Page Object Model (POM)
+    -Avoid hardcoding by using JSON test data
+    -Automate real-world scenarios
+    -Generate reports and integrate CI/CD
 
-All test data is managed externally using JSON files, avoiding hardcoded values and enabling flexible test execution.
+=>Project Structure  
+    E2E-Automation-Framework/
+    │── .github/workflows/  # CI/CD pipeline
+    │── pages/              # Page Object classes
+    │── test-data/          # JSON test data     
+    │── tests/              # Test files 
+    │── package.json     
+    │── playwright.config.js
+    │── README.md  
 
-🏗️ Project Structure
-    project-root/
-    │
-    ├── tests/            # Test specifications
-    ├── pages/            # Page Object Model classes
-    ├── test-data/        # JSON test data
-    ├── utils/            # Helper utilities (optional)
-    ├── playwright.config.js
-    └── package.json
+=>Test Scenarios Covered
+    Login Functionality:
+        -Valid login
+        -Invalid login
+        -User not found
+    
+    Add to Cart
+        -Add single product
+        -Add multiple products
+        -Validate product name and price
 
+    End-to-End Checkout Flow
+        -Add multiple products
+        -Verify cart details
+        -Enter checkout details
+        -Complete order
+        -Validate success message
+        -Logout    
 
-🧱 Key Design Principles
-        Page Object Model (POM): Encapsulates UI interactions for better readability and reuse
-        Data-Driven Testing: Uses JSON files for users and product data
-        Reusable Components: Common actions and validations are centralized
-        Clean Assertions: Assertions are placed logically within relevant methods
-        Scalable Architecture: Easy to extend for additional test scenarios
-🧪 Test Coverage
-    ✔ Authentication
-        Valid login
-        Invalid password
-        Unregistered user
-    ✔ Product & Cart
-        Add single product
-        Add multiple products
-    Validate product name, price, quantity, and total
-    ✔ End-to-End Flow
-        Login → Add products → Cart validation → Checkout → Payment → Order confirmation
+=>Installation
+    Install dependencies:
 
-⚠️ Challenges & Solutions
-    Flaky elements: Resolved using proper waits and visibility assertions
-    Dynamic content handling: Managed using Playwright locators with filtering
-    Timeout issues: Addressed using waitForLoadState and stable selectors
+    npm init -y        /* Install the Node Modelue in folder */
+    npm Install Playwright@latest   /* Install Playwright and dependencies */
+    npx playwright test --headed    /* Run playwright test */
+    npx allure generate ./allure-results --clean     /* Generate Allure Report */  
+    npx allure open        /* Open Allure Result */
 
-⭐ Conclusion
-    This framework demonstrates a practical, real-world approach to test automation using Playwright. It is designed to be robust, maintainable, and easily extendable, making it suitable for both learning and professional use.    
+=> Learnings
+    Learned how to design a scalable automation framework
+    Understood Page Object Model structure
+    Worked on real-world scenarios like checkout flow
+    Improved debugging using Allure reports
+    Got hands-on experience with CI/CD    
