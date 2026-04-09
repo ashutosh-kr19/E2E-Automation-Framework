@@ -1,0 +1,8 @@
+{
+  "contactUser": {
+    "name": "Ashutosh",
+    "email": "ashu@test.com",
+    "subject": "Test Subject",
+    "message": "This is a test message"
+  }
+}

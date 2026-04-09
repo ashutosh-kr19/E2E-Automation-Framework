@@ -3,18 +3,14 @@ const { expect } = require('@playwright/test');
 class CheckoutPage {
   constructor(page) {
     this.page = page;
-
     this.commentBox = page.locator('textarea[name="message"]');
     this.placeOrderBtn = page.getByText('Place Order');
-
     this.nameOnCard = page.locator('input[name="name_on_card"]');
     this.cardNumber = page.locator('input[name="card_number"]');
     this.cvc = page.locator('input[name="cvc"]');
     this.expiryMonth = page.locator('input[name="expiry_month"]');
     this.expiryYear = page.locator('input[name="expiry_year"]');
-
     this.payBtn = page.getByRole('button', { name: 'Pay and Confirm Order' });
-
     this.successMsg = page.getByText('Congratulations! Your order has been confirmed!');
     this.downloadInvoiceBtn = page.getByRole('link', { name: 'Download Invoice' });
     this.continueBtn = page.getByRole('link', { name: 'Continue' });
