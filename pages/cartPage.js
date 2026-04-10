@@ -4,6 +4,7 @@ class CartPage {
     this.page = page;
     this.cartRows = page.locator('tbody tr');
     this.checkoutBtn = page.getByText('Proceed To Checkout');
+    this.loginModel = page.locator('//a[@href="/login"]//u[text()="Register / Login"]');
   }
 
   getProductRow(productName) {
@@ -46,6 +47,11 @@ class CartPage {
 
   async verifyProductRemoved(productName) {
     await expect(this.getProductRow(productName)).not.toBeVisible();
+  }
+
+  async clickLoginFromModal() {
+    //await this.page.locator('//a[@href="/login"]//u[text()="Register / Login"]').click();
+    await this.loginModel.click();
   }
 }
 

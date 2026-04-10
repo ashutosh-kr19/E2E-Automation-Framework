@@ -40,7 +40,16 @@ It covers real-world test scenarios like login, add to cart, and complete checko
         -Enter checkout details
         -Complete order
         -Validate success message
-        -Logout    
+        -Logout
+
+    ContactUs
+
+    Search Product
+        -Search Product
+        -Add Product to Cart
+        -Verify Cart
+        -Login
+        -Verify cart and Product Details         
 
 =>Installation
     Install dependencies:
